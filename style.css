@@ -83,3 +83,25 @@ li:hover{
     display: flex;
     justify-content: center;
 }
+
+
+
+.post1{
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 25px 0;
+}
+
+
+
+.post1 img{
+    width: 40%;
+}
+
+
+
+.post1 h3{
+   padding: 10px 0;
+}
