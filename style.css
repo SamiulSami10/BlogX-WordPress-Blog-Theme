@@ -14,3 +14,72 @@ Requires PHP:       7.3
 License:            GNU General Public License v2.0 or later
 License URI:        https://www.gnu.org/licenses/gpl-2.0.html
 */
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    font-family:Verdana;
+}
+
+
+.menu_section {
+    background: black;
+}
+
+
+.mid{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.logo{
+    padding: 10px;
+    justify-content: center;
+}
+
+
+.logo img{
+    width: 70%;
+}
+
+
+ul{
+    display: flex;
+    /* padding: 5px; */
+}
+
+
+li{
+    list-style:none ;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: .7s;
+}
+
+
+
+li:hover{
+    color: black;
+    background-color: white; 
+}
+
+
+.header_image img{
+    width: 100%;
+}
+
+
+.post_mid{
+    
+}
+
+
+.posts{
+    display: flex;
+    justify-content: center;
+}
