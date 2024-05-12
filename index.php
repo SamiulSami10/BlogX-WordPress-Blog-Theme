@@ -17,7 +17,10 @@
     <div class="menu">
         <div class="mid">
             <div class="logo">
-                <img src=" <?php echo get_template_directory_uri(); ?>/images/logo.svg" alt="">
+                <!-- <img src=" <?php echo get_template_directory_uri(); ?>/images/logo.svg" alt=""> -->
+
+                <?php the_custom_logo( ) ?>
+
             </div>
             <ul>
                 <li><a href="#"></a>Home</li>
