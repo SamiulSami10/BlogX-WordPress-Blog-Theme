@@ -10,4 +10,16 @@ add_theme_support( 'custom-logo' );
 add_theme_support( 'title-tag' );
 add_theme_support( 'title-tag' );
 
+
+
+
+register_nav_menus( [
+    'main_menu' => 'Main Menu',
+    'footer_menu' => 'Footer Menu',
+] )
+
 ?>
+
+
+
+

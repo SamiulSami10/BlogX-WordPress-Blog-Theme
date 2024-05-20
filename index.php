@@ -1,74 +1,71 @@
 <!DOCTYPE html>
-<html lang=" <?php language_attributes() ?> ">
+<html lang="<?php language_attributes(); ?>">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> <?php bloginfo( 'title' ) ?> </title>
-
+    <title><?php bloginfo('title'); ?></title>
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css">
-
-    <?php wp_head() ?>
-
+    <?php wp_head(); ?>
 </head>
-<body <?php body_class( ) ?> >
-    
 
-<section class="menu_section">
-    <div class="menu">
-        <div class="mid">
-            <div class="logo">
-                <!-- <img src=" <?php echo get_template_directory_uri(); ?>/images/logo.svg" alt=""> -->
+<body <?php body_class(); ?>>
+    <section class="menu_section">
+        <div class="menu">
+            <div class="mid">
+                <div class="logo">
+                    <!-- Static Logo -->
+                    <!-- <img src="<?php echo get_template_directory_uri(); ?>/images/logo.svg" alt=""> -->
 
-                <?php the_custom_logo( ) ?>
+                    <!-- Dynamic Logo -->
+                    <?php the_custom_logo(); ?>
+                </div>
 
+                <!-- Static Menu -->
+                <!--
+                <ul>
+                    <li><a href="#"></a>Home</li>
+                    <li><a href="#"></a>About</li>
+                    <li><a href="#"></a>Blog</li>
+                    <li><a href="#"></a>Info</li>
+                    <li><a href="#"></a>Contact</li>
+                </ul>
+                -->
+
+                <!-- Dynamic Menu -->
+                <?php 
+                wp_nav_menu([
+                    'theme_location' => 'main_menu',
+                    'container_id' => '',
+                    'container_class' => '',
+                    'menu_id' => '',
+                    'menu_class' => '',
+                ]);
+                ?>
             </div>
-            <ul>
-                <li><a href="#"></a>Home</li>
-                <li><a href="#"></a>About</li>
-                <li><a href="#"></a>Blog</li>
-                <li><a href="#"></a>Info</li>
-                <li><a href="#"></a>Contact</li>
-            </ul>
         </div>
-    </div>
-</section>
+    </section>
 
+    <section class="header_image">
+        <img src="<?php header_image(); ?>" alt="">
+    </section>
 
-<section class="header_image">
-    <img src=" <?php echo get_template_directory_uri(  ); ?>/images/using laptop.jpg " alt="">
-</section>
-
-
-
-<section class="posts">
-<div class="post">
-    <h2 style="text-align: center; font-size: 36px;">Latest Posts</h2>
-    <hr>
-
-    <div class="post_mid">
-
-        <div class="post1">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/ramadan.jpg" alt="">
-            <h3>Ramadan Wallpaper</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit molestias quisquam quis, necessitatibus alias earum, cumque soluta hic debitis neque optio voluptatibus doloribus placeat asperiores distinctio consequuntur, commodi itaque nesciunt? Deserunt ullam odio excepturi hic magni incidunt atque eligendi perspiciatis dolores velit, quasi est, dolorum tenetur exercitationem repudiandae unde. Quia eius voluptate quisquam esse id blanditiis eos delectus magni reiciendis. Voluptates dolor quis mollitia laboriosam fuga vero delectus accusamus consequatur! Qui in earum voluptatem facere accusantium dolore magni. Vero aperiam, assumenda repudiandae molestias nesciunt maiores odit deleniti eveniet omnis ducimus quis officia placeat non maxime ea architecto libero magnam pariatur ipsum distinctio? Quas explicabo sint itaque laboriosam doloremque fugit voluptas ad temporibus laudantium aliquam iusto aliquid asperiores laborum sequi perspiciatis, numquam libero sed eveniet. Delectus facere temporibus labore, quibusdam asperiores quas repellat debitis facilis quidem totam vel saepe nulla officia doloremque deleniti adipisci placeat sint ratione consequatur quasi recusandae a?</p>
+    <section class="posts">
+        <div class="post">
+            <h2 style="text-align: center; font-size: 36px;">Latest Posts</h2>
+            <hr>
+            <div class="post_mid">
+                <?php while (have_posts()) : the_post(); ?>
+                    <div class="post1">
+                        <?php the_post_thumbnail(); ?>
+                        <h3><?php the_title(); ?></h3>
+                        <p><?php the_excerpt(); ?></p>
+                    </div>
+                <?php endwhile; ?>
+            </div>
         </div>
+    </section>
 
-        <div class="post1">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/ESB.jpg" alt="">
-            <h3>Stadium</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit molestias quisquam quis, necessitatibus alias earum, cumque soluta hic debitis neque optio voluptatibus doloribus placeat asperiores distinctio consequuntur, commodi itaque nesciunt? Deserunt ullam odio excepturi hic magni incidunt atque eligendi perspiciatis dolores velit, quasi est, dolorum tenetur exercitationem repudiandae unde. Quia eius voluptate quisquam esse id blanditiis eos delectus magni reiciendis. Voluptates dolor quis mollitia laboriosam fuga vero delectus accusamus consequatur! Qui in earum voluptatem facere accusantium dolore magni. Vero aperiam, assumenda repudiandae molestias nesciunt maiores odit deleniti eveniet omnis ducimus quis officia placeat non maxime ea architecto libero magnam pariatur ipsum distinctio? Quas explicabo sint itaque laboriosam doloremque fugit voluptas ad temporibus laudantium aliquam iusto aliquid asperiores laborum sequi perspiciatis, numquam libero sed eveniet. Delectus facere temporibus labore, quibusdam asperiores quas repellat debitis facilis quidem totam vel saepe nulla officia doloremque deleniti adipisci placeat sint ratione consequatur quasi recusandae a?</p>
-        </div>
-
-        <div class="post1">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/RMA.png" alt="">
-            <h3>Real Madrid</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit molestias quisquam quis, necessitatibus alias earum, cumque soluta hic debitis neque optio voluptatibus doloribus placeat asperiores distinctio consequuntur, commodi itaque nesciunt? Deserunt ullam odio excepturi hic magni incidunt atque eligendi perspiciatis dolores velit, quasi est, dolorum tenetur exercitationem repudiandae unde. Quia eius voluptate quisquam esse id blanditiis eos delectus magni reiciendis. Voluptates dolor quis mollitia laboriosam fuga vero delectus accusamus consequatur! Qui in earum voluptatem facere accusantium dolore magni. Vero aperiam, assumenda repudiandae molestias nesciunt maiores odit deleniti eveniet omnis ducimus quis officia placeat non maxime ea architecto libero magnam pariatur ipsum distinctio? Quas explicabo sint itaque laboriosam doloremque fugit voluptas ad temporibus laudantium aliquam iusto aliquid asperiores laborum sequi perspiciatis, numquam libero sed eveniet. Delectus facere temporibus labore, quibusdam asperiores quas repellat debitis facilis quidem totam vel saepe nulla officia doloremque deleniti adipisci placeat sint ratione consequatur quasi recusandae a?</p>
-        </div>
-
-    </div>
-</div>
-</section>
-
-<?php wp_footer() ?>/
+    <?php wp_footer(); ?>
 </body>
 </html>
